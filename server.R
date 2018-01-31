@@ -41,20 +41,20 @@ country_level<-data_2disease_1_withROR%>%
       leaflet() %>%
         addTiles(
           'https://korona.geog.uni-heidelberg.de/tiles/roads/x={x}&y={y}&z={z}'
-        ) %>% #setView(lng = 2.213749, lat = 46.22764, zoom = 1.3) %>%
+        ) %>% setView(lng = -94.0589, lat = 42.3601, zoom = 4)%>%
         addCircleMarkers(data=C%>%filter(Conditions=="Breast Cancer"),
           group = "Breast Cancer",
           #clusterOptions = markerClusterOptions(),
           radius = ~ lapply(C$n, function(x) sqrt(x)*3),
           color = 'orange',
-          stroke = FALSE, fillOpacity = 0.5
+          stroke = FALSE, fillOpacity = 0.5, clusterOptions = markerClusterOptions()
         ) %>%
     addCircleMarkers(data=C%>%filter(Conditions=="Prostate Cancer"),
         group = "Prostate Cancer",
         #clusterOptions = markerClusterOptions(),
         radius = ~ lapply(C$n, function(x) sqrt(x)*3),
         color = 'navy',
-        stroke = FALSE, fillOpacity = 0.5
+        stroke = FALSE, fillOpacity = 0.5,clusterOptions = markerClusterOptions()
       )%>%
       addLayersControl(
       baseGroups = c("Breast Cancer", "Prostate Cancer"),

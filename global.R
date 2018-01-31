@@ -109,7 +109,7 @@ library(ggmap)
 # trial_sites = trial_sites %>% select(-country1)
 # 
 # #saveRDS(c(trial_sites, ), 'data.RDS')
-# #readRDS('data.RDS')
+#readRDS('data.RDS')
 trial_sites<-read.csv("trial_sites.csv",stringsAsFactors = TRUE,na.strings = "")[,-1]
 data_2disease_1<-read.csv("data_2disease_1.csv",stringsAsFactors = FALSE,na.strings = "")[,-1]
 information=c("Recruitment","Phases","Study.Type","Sponsor.Collaborators")
